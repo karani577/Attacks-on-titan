@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#10151d">
+  <title>Titan Gear: ODM Trials</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="game"></div>
+  <div id="loading" class="overlay"><div class="panel"><h1>TITAN GEAR</h1><p>Preparing the training grounds…</p><div class="loader"></div></div></div>
+  <header id="hud" class="hud hidden">
+    <div class="brand">TITAN <span>GEAR</span><small>ODM TRIALS</small></div>
+    <div class="meters">
+      <div><label>HEALTH</label><div class="bar"><i id="healthBar"></i></div></div>
+      <div><label>GAS</label><div class="bar gas"><i id="gasBar"></i></div></div>
+    </div>
+    <div class="resources"><b>◈ <span id="gold">0</span></b><b>⬡ <span id="tokens">0</span></b></div>
+    <button id="pauseBtn" class="iconbtn">Ⅱ</button>
+  </header>
+  <div id="missionHud" class="mission-hud hidden"><b id="missionName">FREE PLAY</b><span>TITANS <strong id="killCount">0</strong>/<strong id="killGoal">∞</strong></span><span id="missionHint">Hook a Titan, then slash!</span></div>
+  <div id="crosshair" class="crosshair hidden">+</div>
+  <div id="toast" class="toast"></div>
+  <div id="dialogue" class="dialogue hidden"><div class="npc-title" id="dialogueTitle">TRAINING OFFICER</div><p id="dialogueText"></p><button id="dialogueClose">CONTINUE</button></div>
+  <nav id="quickbar" class="quickbar hidden">
+    <button data-menu="play">▶<span>PLAY</span></button><button data-menu="gear">✦<span>GEAR</span></button><button data-menu="upgrade">⬆<span>UPGRADES</span></button><button data-menu="forge">⚒<span>FORGE</span></button><button data-menu="skills">⌘<span>SKILLS</span></button><button data-menu="stats">▤<span>STATS</span></button><button data-menu="custom">◉<span>STYLE</span></button>
+  </nav>
+  <div id="touchControls" class="touch-controls hidden">
+    <div class="move-pad"><button data-move="forward">▲</button><div><button data-move="left">◀</button><button data-move="back">▼</button><button data-move="right">▶</button></div></div>
+    <div class="action-pad"><button id="hookBtn">HOOK</button><button id="slashBtn">SLASH</button><button id="boostBtn">BOOST</button><button id="jumpBtn">JUMP</button></div>
+  </div>
+  <main id="menu" class="overlay">
+    <section class="panel main-panel">
+      <div class="eyebrow">SCOUT REGIMENT • TRAINING SIMULATION</div>
+      <h1>TITAN <span>GEAR</span></h1>
+      <p class="subtitle">Master momentum. Find your angle. Strike true.</p>
+      <div class="name-row"><label for="playerName">CALLSIGN</label><input id="playerName" maxlength="18" placeholder="Scout" autocomplete="nickname"><button id="saveName">SAVE</button></div>
+      <div class="choice-grid">
+        <button class="choice" data-start="afk"><span>◷</span><b>AFK ZONE</b><small>5,000 gold + 10 Forge Tokens every 5 minutes while open</small></button>
+        <button class="choice" data-start="free"><span>∞</span><b>FREE PLAY</b><small>Endless Titans • Unlimited respawns</small></button>
+        <button class="choice" data-start="missions"><span>⚑</span><b>NORMAL MISSIONS</b><small>Choose Forest, Field, City, or Island</small></button>
+        <button class="choice" data-start="lobby"><span>⌂</span><b>ENTER LOBBY</b><small>Visit the stations and prepare your gear</small></button>
+      </div>
+      <div class="menu-foot"><span>LOCAL DEMO SAVE</span><span>WASD / TOUCH • E HOOK • CLICK SLASH • SHIFT BOOST</span></div>
+    </section>
+  </main>
+  <section id="panelOverlay" class="overlay hidden"><div class="panel menu-panel"><button id="panelClose" class="close">✕</button><div class="eyebrow">REGIMENT TERMINAL</div><h2 id="panelTitle">PLAY</h2><div id="panelContent"></div></div></section>
+  <section id="missionComplete" class="overlay hidden"><div class="panel result-panel"><div class="eyebrow">MISSION REPORT</div><h1 id="resultTitle">MISSION COMPLETE</h1><div class="result-grid"><div><small>TITANS SLAIN</small><b id="resultKills">0</b></div><div><small>GOLD EARNED</small><b id="resultGold">0</b></div><div><small>FORGE TOKENS</small><b id="resultTokens">0</b></div><div><small>TIME TAKEN</small><b id="resultTime">00:00</b></div></div><div class="result-actions"><button id="replayBtn">↻ REPLAY</button><button id="lobbyBtn">⌂ LOBBY</button></div></div></section>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
