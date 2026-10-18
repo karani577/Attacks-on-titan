@@ -1,50 +1,48 @@
-# Titan Gear: ODM Trials
+# Titan Gear: ODM Trials — Enhanced Update
 
-A mobile-friendly browser 3D action-game prototype inspired by anime titan-hunting and ODM traversal. It uses Three.js from a public CDN and does not require a build step.
+This is an updated set of the existing browser game files for the `karani577/Attacks-on-titan` repository. It keeps the original lobby, gear spin shop, rarity forge, direct upgrades, skill routes, stats/save export, custom uniform, Free Play, AFK Zone, and four 40-kill missions.
 
-## Publish on GitHub Pages (iPad-friendly)
-
-1. Create a new repository on GitHub, for example `titan-gear`.
-2. Upload **all four files** from this folder (`index.html`, `style.css`, `game.js`, and `README.md`) to the repository root.
-3. In the repository, open **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**, choose `main` and `/(root)`, then Save.
-5. Wait for GitHub Pages to publish, then open the URL shown on that Pages settings screen.
-
-The Three.js module is loaded from jsDelivr, so the game requires an internet connection. Do not open `index.html` directly from the Files app; use GitHub Pages or another static web host so JavaScript modules load correctly.
+## What's changed
+- Larger, more detailed low-poly Titans with visible facial features, muscle definition, nape marker, and improved scale.
+- Titans spawn slightly farther away than in the original version.
+- Improved lighting, fog, procedural ground texture, atmospheric depth, terrain props, city windows, and material response.
+- Mobile-friendly renderer settings (reduced pixel ratio and no real-time shadow map on touch devices) to protect performance.
+- Input profile detects touch devices, keyboard/mouse, and connected Gamepads. A console browser can only be identified reliably when its user-agent exposes the platform or a controller is detected.
+- A dedicated mission UI state: lobby HUD and navigation disappear. Missions show a small top objective/status strip, a compact control guide at bottom-left, and combat skills at bottom-right.
+- Combat skills: `1` Burst dash, `2` Pulse area strike, `3` Execute empowered slash; buttons are also clickable.
+- Fixed mission spawning so 40-kill missions can keep replenishing Titans until the objective is complete.
 
 ## Controls
+### Mobile / touch
+Use the on-screen directional pad to move, drag the game view to look, and tap Hook, Slash, Boost, or Jump. The three combat skills are in the lower-right panel.
 
-### Desktop
-- **WASD / arrow keys**: move
-- **Mouse movement**: rotate camera (double-click the game to request pointer lock)
-- **E** or right-click: hook / release
-- **Left-click** or **F**: slash
-- **Space**: jump
-- **Shift**: boost (uses gas)
-- **Escape**: pause / resume
+### PC
+- WASD / arrow keys: move
+- Mouse: look around; double-click the view to request pointer lock
+- E or right mouse button: hook / release
+- Left mouse button or F: slash
+- Space: jump
+- Shift: boost (uses gas)
+- 1 / 2 / 3: combat skills
+- Escape: pause / resume
 
-### Touch devices
-Use the on-screen movement pad and Hook, Slash, Boost, Jump buttons. Drag across the game view to rotate the camera.
+### Controller / console browser
+- Left stick: move; right stick: camera
+- A / bottom face button: jump
+- B / east face button: hook
+- X / west face button: slash
+- Y / north face button: Burst; LB: Pulse; RB: Execute
+- LT or RT: boost (controller mapping varies by browser/controller)
+- Start: pause / resume
 
-## Included prototype systems
+## Install on GitHub Pages from an iPad
+1. Open the repository in Safari: https://github.com/karani577/Attacks-on-titan
+2. Replace the existing `index.html`, `style.css`, `game.js`, and `README.md` with the four files from this update. Keep the exact filenames and place them in the repository root.
+3. Commit the changes to the `main` branch.
+4. If GitHub Pages is already enabled, wait for the deployment to finish. Open the Pages URL; you normally do not need to publish a GitHub Release.
+5. If Pages is not enabled, open **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/(root)`, then Save.
 
-- 3D lobby with station dialogue, plus Free Play, AFK Zone and four 40-kill missions
-- ODM-style hook pull, momentum, jumping, boost and gas meter
-- Titans with health, contact damage, slash combat and kill rewards
-- Gear spin shop with ten gear names and seven rarity colors
-- Gear rarity forge, gear tier upgrades, duplicate merge
-- Direct upgrades for damage, movement speed, critical damage/chance, hook range and gas capacity
-- Luck, Damage and Health skill routes
-- Personal stats, callsign, uniform color, local save, and save export
-- Mission completion report with kills, gold, forge tokens, time, replay and lobby buttons
+The game loads Three.js from jsDelivr, so an internet connection is required. Open the published Pages website rather than the GitHub file preview or the Files app.
 
-## Important limitations
-
-This is a **playable prototype**, not a finished commercial game. Physics are an original approximation, not copied proprietary AOTR or UAOT code. Saves are local to the browser/device; there is no real online account, server validation, cross-device cloud save, or global leaderboard. AFK rewards accrue only while the page remains open. The leaderboard entry explains this limitation. The project has not been exhaustively tested across all devices, and external CDN availability is required.
-
-## If the game does not load
-
-- Confirm all files are at the repository root with exact filenames.
-- Open the published GitHub Pages URL, not the GitHub file preview.
-- Refresh once the Pages deployment finishes.
-- Check your internet connection because Three.js is loaded from jsDelivr.
+## Prototype limitations
+This remains a client-side prototype. Progress is stored locally in the browser on the current device; there is no server, multiplayer, cloud save, or online leaderboard. Browser-based console identification is not guaranteed on all console browsers; connected Gamepad detection is the reliable fallback.
